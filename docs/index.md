@@ -1,17 +1,7 @@
-# Welcome to MkDocs
+# Welcome to the lockable documentation
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+[Lockable](https://lockable.dev) is a service providing synchronization locking for distributed systems. Think of it as `flock` but for distributed systems.
 
-## Commands
+See common [Use Cases](use-cases.md) for Lockable.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+You can use Lockable directly via [HTTPS requests](https-endpoints.md) or via the [Python client](python-client.md)

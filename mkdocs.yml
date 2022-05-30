@@ -1,1 +1,18 @@
 site_name: My Docs
+theme:
+    name: readthedocs
+
+site_name: Lockable Documentation
+site_url: https://docs.lockable.dev
+
+site_description: Welcome to Lockable Documentation
+site_author: lockable.dev
+
+repo_url: https://github.com/lockable-dev/lockable-docs
+nav:
+    - Home: index.md
+    - Use cases: use-cases.md
+    - HTTPS endpoints: https-endpoints.md
+    - Python client: python-client.md
+
+strict: true
