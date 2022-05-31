@@ -1,6 +1,7 @@
 # Python client
 
 You can use Lockable via the [official Python client](https://pypi.org/project/lockable.dev/). The client provides 2 main benefits:
+
 1. it handles sending period heartbeats to the server via a separate thread
 2. it provides a nicer interface via Python `with` statements.
 
@@ -55,6 +56,7 @@ with Lock(
 
 ## Advanced methods
 `lockable` allows you to call the three endpoints directly via:
+
 * `lockable.try_acquire(lock_name)`
 * `lockable.try_heartbeat(lock_name)`
 * `lockable.try_release(lock_name)`
