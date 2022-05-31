@@ -6,8 +6,9 @@ You can use Lockable via the [official Python client](https://pypi.org/project/l
 2. it provides a nicer interface via Python `with` statements.
 
 ## Install
+Library is available via pip:
 ```bash
-pip install lockable-dev
+$ pip install lockable-dev
 ```
 
 ## Code
