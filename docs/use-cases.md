@@ -29,3 +29,5 @@ Lockable lets you avoid this via the use of synchronization locks:
    10. process 2: write local copy to S3
 ```
 With this new approach, `process 1` and `process 2` are guaranteed to never overwrite each other's data.
+
+> **_NOTE_**: when picking a lock name, please make sure the lock name is unique and has low collision probability. For example `acme-company-foo-system-parallel-batch-job` is a good name. `my-lock` is not.

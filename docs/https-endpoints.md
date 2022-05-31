@@ -2,6 +2,10 @@
 
 Lockable exposes 3 different endpoints:
 
+* [acquire](#acquire)
+* [heartbeat](#heartbeat)
+* [release](#release)
+
 ## Acquire
 You can attempt to acquire a lock by calling `/acquire`:
 ```bash
@@ -28,3 +32,26 @@ Once a process is done with the lock, it can release it by calling the `/release
 ```bash
 curl https://api.lockable.dev/v1/release/my-lock-name
 ```
+
+## Authentication
+All endpoints require users to authenticate via HTTP basic authentication. In order to authenticate, you need to:
+
+1. Acquire your auth token from [your account page](https://lockable.dev/account)
+2. Provide the auth token as a username with an empty password.
+
+For example, requests done via curl:
+```bash
+curl https://api.lockable.dev/v1/acquire/my-lock-name -u 00000000-0000-0000-0000-000000000000:
+```
+
+Requests done via Python (using the [requests](https://pypi.org/project/requests/) library):
+```python
+import requests as rq
+
+auth = ('00000000-0000-0000-0000-000000000000', '') #Note the empty password
+res = rq.get(f"https://{LOCKABLE_DOMAIN}/v1/heartbeat/my-lock-name", auth=auth)
+```
+
+For brevity, for most code examples in this documentaion, we will avoid passing in any authentication information.
+
+
