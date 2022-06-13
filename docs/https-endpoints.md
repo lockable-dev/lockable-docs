@@ -27,6 +27,8 @@ curl https://api.lockable.dev/v1/heartbeat/my-lock-name
 ```
 This returns `{'response': true}` if the lease was renewed successfully, `{'response': false}` otherwise.
 
+> **_NOTE_**: By default, locks go in the same public namespace. When picking a lock name, please make sure the name is unique and has low collision probability. For example `acme-company-foo-system-parallel-batch-job` is a good name. `my-lock` is not. Alternatively, private namespaces are available for Business tier users.
+
 ## Release
 Once a process is done with the lock, it can release it by calling the `/release` endpoint:
 ```bash
@@ -42,6 +44,7 @@ All endpoints require users to authenticate via HTTP basic authentication. In or
 For example, requests done via curl:
 ```bash
 curl https://api.lockable.dev/v1/acquire/my-lock-name -u 00000000-0000-0000-0000-000000000000:
+//note the colon at the end of the command
 ```
 
 Requests done via Python (using the [requests](https://pypi.org/project/requests/) library):
@@ -52,6 +55,6 @@ auth = ('00000000-0000-0000-0000-000000000000', '') #Note the empty password
 res = rq.get(f"https://{LOCKABLE_DOMAIN}/v1/heartbeat/my-lock-name", auth=auth)
 ```
 
-For brevity, for most code examples in this documentaion, we will avoid passing in any authentication information.
+For brevity, for most code examples in this documentation, we will avoid passing in any authentication information.
 
 

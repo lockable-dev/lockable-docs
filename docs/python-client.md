@@ -2,7 +2,7 @@
 
 You can use Lockable via the [official Python client](https://pypi.org/project/lockable.dev/). The client provides 2 main benefits:
 
-1. it handles sending period heartbeats to the server via a separate thread
+1. it handles sending periodic heartbeats to the server via a separate thread
 2. it provides a nicer interface via Python `with` statements.
 
 ## Install
