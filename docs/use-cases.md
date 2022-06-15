@@ -29,3 +29,16 @@ Lockable lets you avoid this via the use of synchronization locks:
    10. process 2: write local copy to S3
 ```
 With this new approach, `process 1` and `process 2` are guaranteed to never overwrite each other's data.
+
+
+## Ensure a single instance of a process is running
+It's common to have various scripts run periodically (e.g. data processing steps in ETL pipelines, backup jobs etc). Most of the times the assumption is that these jobs will only have a single instance running at a time. This leads to instances where, due to processing slowness, running jobs do not finish before newly scheduled jobs are launched.
+
+Using `lockable`, you can ensure a single instance of a process is running at any given time, by making sure your logic is only executed if the associated lock can be acquired. e.g.
+
+```
+1. acquire lock.
+  1.a. if acquisiton fails, either exit, or retry after a set amount
+2. run the script
+3. release lock
+```
